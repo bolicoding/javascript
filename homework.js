@@ -129,3 +129,48 @@ console.log(functionDec([1,2,3,4]));
 const functionArrow = arr => arr.reduce((a, b) => a + b, 0);
 
 console.log(sum([1, 2, 3, 4]))
+
+
+
+
+//10/05/2020
+class Student {
+  constructor({ name, email, favLang, favCodingLang = 'Python' }) {
+    this.name = name;
+    this.email = email;
+    this.favLang = favLang;
+    this.favCodingLang = favCodingLang;
+  }
+  
+   static show() {
+     console.log(Student)
+   }
+  
+   static surprise() {
+     alert('Hello!')
+   }
+  
+   allData() {
+      return `${this.name}, ${this.email}, ${this.favLang}`;
+    }
+    
+   favoriteLanguage() {
+      return `Their favorite language is: ${this.favLang}`;
+    }
+} 
+
+const ash = new Student({name: 'Ashley Orozco', email: 'ashorozco@gmail.com', favLang: 'English'});
+const mili = new Student({name: 'Mili Mon', email: 'milimon@gmail.com', favLang: 'Russian', favCodingLang: 'Javascript'});
+console.log(ash.favoriteLanguage());
+console.log(mili.allData());
+
+//working with apis
+
+fetch("https://jsonplaceholder.typicode.com/posts")
+.then((res) => res.json())
+.then((data) => console.log(data))
+.then((data) => {
+  data.forEach(element => {
+    console.log(element)
+  });
+});
