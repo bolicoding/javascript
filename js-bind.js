@@ -223,3 +223,19 @@ async function queryApis() {
 }
 
 queryApis();
+
+//using async and await to comm w outisde APIs (bolicoding github repos and dailysmarty)
+async function queryApis() {
+  const postsPromise = fetch('https://api.dailysmarty.com/posts');
+  const posts = await postsPromise.then(res => res.json());
+  console.log(posts);
+  
+  const reposPromise = fetch('https://api.github.com/users/bolicoding/repos');
+  const repos = await reposPromise.then(res => res.json());
+  console.log(repos);
+}
+
+queryApis();
+
+
+// 
